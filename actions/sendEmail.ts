@@ -30,10 +30,7 @@ export const sendEmail = async (formData: FormData) => {
       to: "jagathramesh30@gmail.com",
       subject: "Message from contact form",
       reply_to: senderEmail,
-      react: React.createElement(ContactFormEmail, {
-        message: message,
-        senderEmail: senderEmail,
-      }),
+      html: `<p>${message}</p><p>From: ${senderEmail}</p>`,
     });
   } catch (error: unknown) {
     return {
