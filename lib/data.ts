@@ -34,78 +34,79 @@ export const links = [
 ] as const;
 
 export const experiencesData = [
- {
-  title: "Software Engineer Intern",
-  location: "Bengaluru Urban, India",
-  description:
-    "Worked on a feedback form application for collecting course feedback and developed a course scholar application with login functionality. Contributed to UI design, backend integration, and user authentication features.",
-  icon: React.createElement(LuGraduationCap),
-  date: "2023",
-},
-{
-  title: "AWS Data Engineer Intern",
-  location: "Chennai, India",
-  description:
-    "Completed a 6-month internship as an AWS Data Engineer, working on ETL processes using AWS Glue to extract, transform, and load sales data. Gained hands-on experience in data pipeline development and AWS ecosystem tools.",
-  icon: React.createElement(CgWorkAlt),
-  date: "Feb 2023 - Sep 2023",
-},
-{
-  title: "Full-Stack Developer",
-  location:  "Bengaluru Urban, India",
-  description:
-    "Working at Finfolab Technologies as a Full-Stack Developer on the Algomojo product, an algorithmic trading application integrated with top Indian brokers. Developed features for creating trading strategies, executing trades, and enhancing user experience. Tech stack includes React, Next.js, TypeScript, Tailwind, Prisma, and MongoDB.",
-  icon: React.createElement(FaReact),
-  date: "2023 - present",
-},
+  {
+    title: "Senior Software Engineer",
+    location: "Remote, Singapore",
+    description:
+      "Architected an AI-driven culture and leadership assessment platform with OpenAI APIs, Python, Node.js, and React.js. Led migration from monolith to microservices and event-driven architecture. Managed AWS cloud infrastructure and DevOps.",
+    icon: React.createElement(FaReact),
+    date: "Nov 2025 - Present",
+  },
+  {
+    title: "Software Engineer",
+    location: "Bengaluru, India",
+    description:
+      "Led end-to-end design of TradeAction options/futures interface. Engineered cron-based pipelines and signal transaction apps. Also served as Technical Team Lead, owning task planning and coordination for critical applications.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Nov 2023 - Oct 2025",
+  },
+  {
+    title: "AWS Data AI Intern",
+    location: "Chennai, India",
+    description:
+      "Engineered end-to-end ETL pipelines with AWS Glue, Lambda, and Step Functions. Optimized AWS RDS storage and querying. Implemented scalable AWS data workflows.",
+    icon: React.createElement(LuGraduationCap),
+    date: "Feb 2023 - Aug 2023",
+  },
 ] as const;
 
 export const projectsData = [
   {
-    title: "jaxwallet",
+    title: "LLMOps Pipeline",
     description:
-      "A decentralized app with Ethereum smart contracts using Google Ethereum tokenization. Enables secure transactions and public feedback for companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Solidity"],
-    imageUrl: jaxwalletImg,
+      "End-to-end LLMOps pipeline benchmarking GPT, Claude, LLaMA, and DeepSeek. Automated evaluation with LangSmith/TruLens and AWS CloudWatch monitoring.",
+    tags: ["Python", "LangSmith", "AWS", "LLMs", "Data Analysis"],
+    imageUrl: dashboardImg,
   },
   {
-    title: "Algomojo",
+    title: "AI Survey Builder",
     description:
-      "A web platform for algo traders to create, test, and execute strategies. Built with Angular and Node.js, hosted on AWS, optimized for SEO, and powered by MySQL.",
-    tags: ["Angular", "Node.js", "AWS", "SEO", "MySQL"],
+      "Custom AI-powered form and survey builder with dynamic generation. Built with Next.js, Node.js, and MongoDB, deployed on AWS EC2.",
+    tags: ["Next.js", "Node.js", "MongoDB", "AWS EC2", "AI"],
     imageUrl: algositeImg,
   },
   {
-    title: "Strategy Builder",
+    title: "AI Stock Research Tool",
     description:
-      "An Angular app for algo traders to create strategies, convert them into tradable signals, and place orders via top Indian brokers' APIs (Zerodha, Grow, TopBrokers).",
-    tags: ["Angular", "TypeScript", "Broker APIs", "Zerodha", "Grow"],
-    imageUrl: dashboardImg,
+      "Financial research platform leveraging LangChain, OpenAI embeddings, and FAISS. Features real-time Q&A and automated processing.",
+    tags: ["Python", "Streamlit", "LangChain", "OpenAI", "FAISS"],
+    imageUrl: jaxwalletImg,
   },
 ] as const;
 
 export const skillsData = [
-  "HTML",
-  "CSS",
+  "Java",
   "JavaScript",
   "TypeScript",
   "React",
   "Next.js",
+  "Angular",
   "Node.js",
-  "Git",
-  "Tailwind",
-  "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
   "Python",
-  "Django",
-  "Framer Motion",
-  "Aws Ec2",
+  "Express.js",
+  "HTML5",
+  "CSS3",
+  "SQL",
+  "MySQL",
+  "PostgreSQL",
+  "MongoDB",
+  "NoSQL",
+  "AWS",
   "Docker",
-  "Devops",
-  "CI/CD",
+  "Kubernetes",
+  "Git",
+  "Terraform",
+  "GCP",
+  "System Design",
+  "Microservices",
 ] as const;

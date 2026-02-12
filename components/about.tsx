@@ -19,34 +19,29 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        After graduating with a degree in{" "}
-        <span className="font-medium">Computer Science Engineering</span>, I
-        decided to pursue my passion for programming. I enrolled in a coding
-        bootcamp and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
+        I am a <span className="font-medium">Senior Software Engineer</span> with over{" "}
+        <span className="font-medium">3 years of experience</span> in building
+        scalable web applications and cloud-native{" "}
+        <span className="font-medium">FinTech solutions</span>. My expertise spans
+        across{" "}
         <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB, MySQL
+          Java, JavaScript, Node.js, React, and AWS
         </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I have also worked extensively with AWS servers
-        and DevOps, and I find the entire process exciting—seeing how everything
-        comes together and works seamlessly truly fascinates me. I am currently
-        looking for a <span className="font-medium">full-time position</span> as
-        a software developer.
+        . I have a strong background in architecting{" "}
+        <span className="italic">AI-driven products</span>, migrating monoliths to
+        microservices, and optimizing system performance. Currently, I work at{" "}
+        <span className="font-medium">Kess</span>, where I architect AI-driven
+        assessment workflows and manage cloud infrastructure.
       </p>
 
       <p>
         <span className="italic">When I'm not coding</span>, I enjoy playing
         video games, watching movies, and exploring my interest in trucking
         content like overlanding and travel videos. I also love listening to
-        podcasts and reading books. I enjoy{" "}
-        <span className="font-medium">learning new things</span>
-        and am currently learning about{" "}
-        <span className="font-medium">history and philosophy</span>. I'm also
+        podcasts and reading books. I am always looking to learn new
+        technologies, currently exploring{" "}
+        <span className="font-medium">Google Vertex AI</span> and{" "}
+        <span className="font-medium">history/philosophy</span>. I'm also
         learning how to play the guitar.
       </p>
     </motion.section>
