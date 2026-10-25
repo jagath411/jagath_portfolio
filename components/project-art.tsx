@@ -113,7 +113,105 @@ function Stocks() {
   );
 }
 
-const ART = { benchmark: Benchmark, survey: Survey, stocks: Stocks };
+
+// Isometric box for the massing drawing: x, y of the top-front corner, half width, half depth, height
+function Box({ x, y, a, b, h, hot }: { x: number; y: number; a: number; b: number; h: number; hot?: boolean }) {
+  const t = hot ? "i-acc" : "i-cob-t";
+  return (
+    <g>
+      <polygon className={hot ? "i-acc-l" : "i-cob-l"} points={`${x - a},${y - b} ${x},${y} ${x},${y + h} ${x - a},${y - b + h}`} />
+      <polygon className={hot ? "i-acc-r" : "i-cob-r"} points={`${x},${y} ${x + a},${y - b} ${x + a},${y - b + h} ${x},${y + h}`} />
+      <polygon className={t} points={`${x},${y - 2 * b} ${x + a},${y - b} ${x},${y} ${x - a},${y - b}`} />
+    </g>
+  );
+}
+
+function Studio() {
+  return (
+    <svg className="ill" viewBox="0 0 600 400" role="img" aria-label="Design studio turning a written brief into a 3D building massing with area and carbon figures">
+      <rect className="i-bg" width="600" height="400" />
+      <rect className="i-card" x="28" y="32" width="200" height="336" />
+      <text className="i-fg" x="46" y="66" fontSize="15" fontWeight="700">Describe the building</text>
+      <rect className="i-line" x="46" y="80" width="164" height="118" />
+      <text className="i-fg" fontSize="12">
+        <tspan x="56" y="104">4-storey office with a</tspan>
+        <tspan x="56" y="122">south-facing atrium,</tspan>
+        <tspan x="56" y="140">timber frame, about</tspan>
+        <tspan x="56" y="158">2,400 m² floor area.</tspan>
+      </text>
+      <rect className="i-acc" x="46" y="214" width="104" height="36" />
+      <text x="62" y="237" fontSize="13" fontWeight="700" fill="#fff">Generate</text>
+      <text className="i-mute" x="46" y="284" fontSize="11">Floor area</text>
+      <text className="i-fg" x="46" y="302" fontSize="16" fontWeight="700">2,412 m²</text>
+      <text className="i-mute" x="46" y="330" fontSize="11">Embodied carbon</text>
+      <text className="i-fg" x="46" y="348" fontSize="16" fontWeight="700">312 kgCO₂e/m²</text>
+      <rect className="i-card" x="244" y="32" width="328" height="336" />
+      <g className="i-grid">
+        {[0, 1, 2, 3, 4, 5, 6].map((k) => (
+          <g key={k}>
+            <line x1={268 + k * 48} y1="330" x2={268 + k * 48 + 96} y2="275" />
+            <line x1={268 + k * 48} y1="275" x2={268 + k * 48 + 96} y2="330" />
+          </g>
+        ))}
+      </g>
+      <g className="i-pop">
+        <Box x={380} y={300} a={70} b={40} h={34} />
+        <Box x={380} y={266} a={70} b={40} h={34} />
+        <Box x={380} y={232} a={70} b={40} h={34} />
+        <Box x={380} y={198} a={70} b={40} h={34} hot />
+      </g>
+      <g className="i-pop d2">
+        <Box x={480} y={320} a={42} b={24} h={30} />
+        <Box x={480} y={290} a={42} b={24} h={30} />
+      </g>
+      <text className="i-mute" x="262" y="60" fontSize="11">Massing, level 4 selected</text>
+    </svg>
+  );
+}
+
+function Energy() {
+  const nodes = [[468, 112], [512, 138], [512, 190], [468, 216], [424, 190], [424, 138]];
+  return (
+    <svg className="ill" viewBox="0 0 600 400" role="img" aria-label="ETL pipeline moving 30 terabytes of EnergyPlus results into a Cassandra cluster that answers building energy queries instantly">
+      <rect className="i-bg" width="600" height="400" />
+      <g>
+        {[0, 1, 2].map((k) => (
+          <rect key={k} className="i-card" x={40 + k * 8} y={60 + k * 8} width="120" height="150" />
+        ))}
+        <text className="i-fg" x="64" y="104" fontSize="14" fontWeight="700">EnergyPlus</text>
+        <text className="i-mute" x="64" y="124" fontSize="12">simulation results</text>
+        <text className="i-fg" x="64" y="168" fontSize="28" fontWeight="800">30 TB</text>
+        <text className="i-mute" x="64" y="190" fontSize="12">every city</text>
+      </g>
+      <g fontSize="12" fontWeight="700">
+        {["Extract", "Transform", "Load"].map((step, k) => (
+          <g key={step} className={`i-pop${k ? " d" + (k + 1) : ""}`}>
+            <rect className={k === 2 ? "i-acc" : "i-cob-l"} x="210" y={78 + k * 46} width="132" height="34" />
+            <text x="226" y={100 + k * 46} fill="#fff">{step}</text>
+          </g>
+        ))}
+      </g>
+      <polyline className="i-stroke i-draw" points="180,140 200,140" />
+      <polyline className="i-stroke i-draw" points="350,164 404,164" />
+      <circle className="i-line" cx="468" cy="164" r="64" />
+      <circle className="i-bg" cx="468" cy="164" r="60" />
+      {nodes.map(([x, y], k) => (
+        <circle key={k} className={k === 0 ? "i-acc" : "i-cob-t"} cx={x} cy={y} r="13" />
+      ))}
+      <text className="i-fg" x="468" y="168" fontSize="12" fontWeight="700" textAnchor="middle">Cassandra</text>
+      <g className="i-pop d3">
+        <rect className="i-card" x="40" y="262" width="524" height="100" />
+        <text className="i-mute" x="64" y="292" fontSize="12">Office, Munich, 2,400 m²</text>
+        <text className="i-fg" x="64" y="326" fontSize="24" fontWeight="800">118 kWh/m² a year</text>
+        <text className="i-mute" x="64" y="346" fontSize="12">Annual energy use</text>
+        <text className="i-fg" x="420" y="326" fontSize="24" fontWeight="800">Instant</text>
+        <text className="i-mute" x="420" y="346" fontSize="12">no new simulation run</text>
+      </g>
+    </svg>
+  );
+}
+
+const ART = { studio: Studio, energy: Energy, benchmark: Benchmark, survey: Survey, stocks: Stocks };
 
 export default function ProjectArt({ art }: { art: keyof typeof ART }) {
   const Art = ART[art];

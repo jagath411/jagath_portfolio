@@ -9,9 +9,9 @@ export default function Projects() {
         <div className="section__head">
           <div>
             <p className="eyebrow">Projects</p>
-            <h2>Things I've built on my own</h2>
+            <h2>Things I've built</h2>
           </div>
-          <p className="section__lede">Side projects where I try a new part of the stack end to end.</p>
+          <p className="section__lede">Product work at NashZero and side projects where I take a part of the stack end to end.</p>
         </div>
         <div className="tools">
           {projectsData.map((p, i) => (
@@ -30,9 +30,11 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn btn--dark">
-                  View on GitHub <Arrow />
-                </a>
+                {p.github && (
+                  <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn btn--dark">
+                    View on GitHub <Arrow />
+                  </a>
+                )}
               </div>
             </article>
           ))}

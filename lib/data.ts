@@ -88,12 +88,31 @@ export const experiencesData: {
 
 export const projectsData = [
   {
+    art: "studio",
+    kicker: "Product at NashZero",
+    title: "AI building design studio",
+    description:
+      "A browser-based design tool for sustainable architecture, in the spirit of Snaptrude. Architects describe a building in plain words and get an editable 3D massing, then refine it with live floor-area and embodied-carbon figures. I built the backend and the AI agents that turn prompts into designs.",
+    tags: ["AI agents", "Node.js", "Python", "React"],
+    github: false,
+  },
+  {
+    art: "energy",
+    kicker: "Data engineering at NashZero",
+    title: "EnergyPlus data pipeline",
+    description:
+      "An ETL pipeline that extracts 30 TB of EnergyPlus building simulation results for every city in the dataset, transforms them and loads them into Apache Cassandra. Building energy analysis now reads precomputed results and answers instantly, instead of waiting for a new simulation to run.",
+    tags: ["Python", "ETL", "Apache Cassandra", "EnergyPlus"],
+    github: false,
+  },
+  {
     art: "benchmark",
     kicker: "AI and LLMOps",
     title: "LLMOps pipeline",
     description:
       "Benchmarks GPT, Claude, LLaMA and DeepSeek side by side, with automated evaluation in LangSmith and TruLens and monitoring in AWS CloudWatch.",
     tags: ["Python", "LangSmith", "AWS"],
+    github: true,
   },
   {
     art: "survey",
@@ -102,6 +121,7 @@ export const projectsData = [
     description:
       "Generates forms and surveys from a short prompt, then collects and stores the responses. Deployed on AWS EC2.",
     tags: ["Next.js", "Node.js", "MongoDB"],
+    github: true,
   },
   {
     art: "stocks",
@@ -110,6 +130,7 @@ export const projectsData = [
     description:
       "Answers questions about company filings and news using OpenAI embeddings, FAISS retrieval and LangChain.",
     tags: ["LangChain", "FAISS", "Streamlit"],
+    github: true,
   },
 ] as const;
 
@@ -171,7 +192,7 @@ export const assistantKnowledge: { keys: string[]; answer: string }[] = [
   {
     keys: ["nashzero", "current", "now", "today", "present"],
     answer:
-      "Jagath has been an Associate Software Engineer at NashZero in Bengaluru since March 2026. He owns the backend and AI integration for a SaaS product in sustainable architecture, including the agent workflows.",
+      "Jagath has been an Associate Software Engineer at NashZero in Bengaluru since March 2026. He owns the backend and AI integration for a SaaS product in sustainable architecture, including the agent workflows. His main product there is an AI building design studio that turns a written brief into an editable 3D building massing. He also built an ETL pipeline that loads 30 TB of EnergyPlus simulation data into Apache Cassandra so energy analysis returns instantly.",
   },
   {
     keys: ["experience", "career", "work", "job", "companies", "history", "background"],
@@ -199,14 +220,14 @@ export const assistantKnowledge: { keys: string[]; answer: string }[] = [
       "Frontend: React, Next.js, TypeScript, Angular, Vue.js, Redux\nBackend: Node.js, NestJS, Express, Python, Django REST, Java, GraphQL\nData: AWS Glue, Redshift, MySQL, RDS, SQL\nCloud and DevOps: AWS, GCP, Docker, Kubernetes, Terraform, Jenkins",
   },
   {
-    keys: ["project", "built", "portfolio", "side"],
+    keys: ["project", "built", "portfolio", "side", "snaptrude", "design", "building", "architecture"],
     answer:
-      "Three side projects: an LLMOps pipeline for benchmarking language models, an AI survey builder (Next.js, Node.js, MongoDB on EC2), and a stock research assistant (LangChain, OpenAI, FAISS).",
+      "At NashZero he built an AI building design studio, similar to Snaptrude, where a written brief becomes an editable 3D massing with live floor-area and carbon figures. His side projects: an LLMOps pipeline for benchmarking language models, an AI survey builder (Next.js, Node.js, MongoDB on EC2), and a stock research assistant (LangChain, OpenAI, FAISS).",
   },
   {
-    keys: ["data", "etl", "pipeline", "cognizant", "glue"],
+    keys: ["data", "etl", "pipeline", "cognizant", "glue", "cassandra", "energyplus", "energy"],
     answer:
-      "He started in data engineering at Cognizant, building an end-to-end ETL pipeline with AWS Glue, S3, Lambda triggers and CloudFormation. He later did data loading into MySQL on Amazon RDS at KESS.",
+      "At NashZero he built an ETL pipeline that moves 30 TB of EnergyPlus simulation results for every city into Apache Cassandra, so building energy analysis answers instantly. He started in data engineering at Cognizant, building an end-to-end ETL pipeline with AWS Glue, S3, Lambda triggers and CloudFormation. He later did data loading into MySQL on Amazon RDS at KESS.",
   },
   {
     keys: ["education", "degree", "study", "college", "university"],
