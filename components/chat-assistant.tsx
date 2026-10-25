@@ -73,8 +73,13 @@ export default function ChatAssistant() {
     <>
       {!open && (
         <button type="button" className="bot-launch" ref={launchRef} aria-label="Ask about Jagath" onClick={show}>
-          <BuildingIcon />
-          <span>Ask about me</span>
+          <span className="bot-launch__icon">
+            <BuildingIcon />
+          </span>
+          <span className="bot-launch__text">
+            <strong>Ask about me</strong>
+            <small>Answers from my CV</small>
+          </span>
         </button>
       )}
       {open && (
