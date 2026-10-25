@@ -1,74 +1,40 @@
 "use client";
 
-import React from "react";
-import SectionHeading from "./section-heading";
-import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./submit-btn";
-import toast from "react-hot-toast";
+import { useState } from "react";
+import { profile } from "@/lib/data";
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact");
+  const [status, setStatus] = useState("");
+
+  const copy = () => {
+    if (!navigator.clipboard) return setStatus(profile.email);
+    navigator.clipboard.writeText(profile.email).then(
+      () => setStatus("Email copied"),
+      () => setStatus(profile.email)
+    );
+  };
 
   return (
-    <motion.section
-      id="contact"
-      ref={ref}
-      className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
-    >
-      <SectionHeading>Contact me</SectionHeading>
-
-      <p className="text-gray-700 -mt-6 dark:text-white/80">
-        Please contact me directly at{" "}
-        <a className="underline" href="mailto:jagathramesh30@gmail.com">
-          jagathramesh30@gmail.com
-        </a>{" "}
-        or through this form.
-      </p>
-
-      <form
-        className="mt-10 flex flex-col dark:text-black"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
-
-          if (error) {
-            toast.error(error);
-            return;
-          }
-
-          toast.success("Email sent successfully!");
-        }}
-      >
-        <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder="Your email"
-        />
-        <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="message"
-          placeholder="Your message"
-          required
-          maxLength={5000}
-        />
-        <SubmitBtn />
-      </form>
-    </motion.section>
+    <section className="section cta" id="contact">
+      <div className="wrap cta__inner">
+        <p className="eyebrow">Contact</p>
+        <h2 className="rv">Hiring an engineer in Germany? Let's talk.</h2>
+        <p>I'm looking for full-stack, platform or AI engineering roles. Email is the fastest way to reach me.</p>
+        <a className="mail" href={`mailto:${profile.email}`}>
+          {profile.email}
+        </a>
+        <div className="btn-row">
+          <button type="button" className="btn btn--primary" onClick={copy}>
+            Copy email
+          </button>
+          <a className="btn btn--light" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </div>
+        <span className="copied" role="status">
+          {status}
+        </span>
+      </div>
+    </section>
   );
 }

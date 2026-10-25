@@ -1,52 +1,33 @@
-"use client";
-
-import React from "react";
-import SectionHeading from "./section-heading";
 import { skillsData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
-import { motion } from "framer-motion";
-
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.05 * index,
-    },
-  }),
-};
 
 export default function Skills() {
-  const { ref } = useSectionInView("Skills");
-
   return (
-    <section
-      id="skills"
-      ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
-    >
-      <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
-            key={index}
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-            custom={index}
-          >
-            {skill}
-          </motion.li>
-        ))}
-      </ul>
+    <section className="section section--dark" id="skills">
+      <div className="wrap">
+        <div className="section__head">
+          <div>
+            <p className="eyebrow">Skills</p>
+            <h2>What I work with every day</h2>
+          </div>
+          <p className="section__lede">Grouped by the part of the system each one lives in.</p>
+        </div>
+        <div className="services">
+          {skillsData.map((group) => (
+            <div className="service" key={group.title}>
+              <p className="eyebrow">{group.kicker}</p>
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+              <div className="chips">
+                {group.items.map((item) => (
+                  <span className="chip" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
